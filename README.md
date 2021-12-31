@@ -1,4 +1,4 @@
-# angular-recipe-app
+# Angular Recipe App
 
 Projeto de aprendizado do framework Angular (em andamento)
 
