@@ -2,7 +2,7 @@
 
 Projeto de aprendizado do framework Angular (em andamento)
 
-# para rodar o projeto na sua máquina
+# Para rodar o projeto na sua máquina
 
 1. Faça o **git clone** do projeto ou o **download do arquivo zip**
 2. Execute **npm install** (caso não tenha a CLI do Angular instalada, instale-a, **npm i -g @angular/cli**)
