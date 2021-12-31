@@ -1,0 +1,8 @@
+<div class="recipe-detail-container">
+  <h3>Recipe Details</h3>
+  <h4>{{ recipe?.name }}</h4>
+  <p><span>Source:</span> {{ recipe?.source }}</p>
+  <p><span>Instructions:</span> {{ recipe?.instructions }}</p>
+  <p><span>Ingredients:</span> {{ recipe?.ingredients }}</p>
+  <p *ngIf="recipe?.tags"><span>Tags:</span> {{ recipe?.tags }}</p>
+</div>

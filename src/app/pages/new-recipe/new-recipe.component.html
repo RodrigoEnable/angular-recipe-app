@@ -1,0 +1,85 @@
+<div class="new-recipe-container">
+  <form class="form" #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <div>
+      <label class="form__label" for="name">Name</label>
+      <div>
+        <span [hidden]="!form.submitted || name.valid" class="form__alert form__alert-danger">Enter a name</span>
+      </div>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        class="form__field"
+        #name="ngModel"
+        [(ngModel)]="recipeValue.name"
+        [ngClass]="{ 'form__field-error': form.submitted && name.invalid }"
+        required
+      />
+      </div>
+    <div>
+      <label class="form__label" for="source">Source</label>
+      <div>      
+        <span [hidden]="!form.submitted || source.valid" class="form__alert form__alert-danger">Enter a source</span>
+      </div>
+      <input
+        type="text"
+        id="source"
+        name="source"
+        class="form__field"
+        #source="ngModel"
+        [(ngModel)]="recipeValue.source"
+        [ngClass]="{ 'form__field-error': form.submitted && source.invalid }"
+        required
+      />
+    </div>
+    <div>
+      <label class="form__label" for="instructions">Instructions</label>
+      <div>
+        <span [hidden]="!form.submitted || instructions.valid" class="form__alert form__alert-danger">Enter a instructions</span>
+      </div>
+      <textarea 
+        rows="6"
+        id="instructions" 
+        name="instructions" 
+        class="form__field"
+        #instructions="ngModel"
+        [(ngModel)]="recipeValue.instructions"
+        [ngClass]="{ 'form__field-error': form.submitted && instructions.invalid }"
+        required
+      ></textarea>
+    </div>
+    <div>
+      <label class="form__label" for="ingredients">Ingredients - separated by commas</label>
+      <div>
+        <span [hidden]="!form.submitted || ingredients.valid" class="form__alert form__alert-danger">Enter a ingredients</span>
+      </div>
+      <input
+        type="text"
+        id="ingredients"
+        name="ingredients"
+        class="form__field"
+        #ingredients="ngModel"
+        [(ngModel)]="recipeValue.ingredients"
+        [ngClass]="{ 'form__field-error': form.submitted && ingredients.invalid }"
+        required
+      />
+    </div>
+    <div>
+      <label class="form__label" for="tags">Tags - separated by commas</label>
+      <ul>
+      <input
+        type="text"
+        id="tags"
+        name="tags"
+        class="form__field"
+        [(ngModel)]="recipeValue.tags"
+      />
+      </ul>
+    </div>
+    <span [hidden]="!postError" class="form__alert form__alert-danger">{{ errorMessage }}</span>
+    <input class="form__btn" type="submit" value="Send" />
+  </form>
+</div>
+<div class="form__back-btn">
+  <app-button url="/" color="rgb(0, 0, 0)" title="Back"></app-button>
+</div>

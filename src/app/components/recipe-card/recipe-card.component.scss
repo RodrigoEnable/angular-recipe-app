@@ -1,0 +1,20 @@
+@use "../../../scss/color";
+
+.recipe-card-container {
+  background: color.$light-gray;
+  margin: 0.5rem 0;
+  padding: 5px 10px;
+  cursor: pointer;
+
+  h3 {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &:hover {
+    background: color.$green;
+    color: color.$light-gray;
+  }
+}

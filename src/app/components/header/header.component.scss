@@ -1,0 +1,14 @@
+@use "../../../scss/typography";
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h4 {
+    font: 4rem typography.$font-rancho;
+    margin: 0 2rem;
+    text-align: center;
+    line-height: 1;
+  }
+}

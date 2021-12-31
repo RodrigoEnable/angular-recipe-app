@@ -1,0 +1,11 @@
+<app-header></app-header>
+<div class="recipes-container">
+  <div>
+    <app-recipe-list (recipePicked)="recipePicked = $event">
+    </app-recipe-list>
+  </div>
+  <div>
+    <app-recipe-detail *ngIf="recipePicked" [recipe]="recipePicked">
+    </app-recipe-detail>
+  </div>
+</div>
