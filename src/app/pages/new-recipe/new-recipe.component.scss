@@ -67,12 +67,12 @@ input:-webkit-autofill:active {
 }
 
 .form__field-error {
-  border: 1px solid rgb(252, 86, 86);
+  border: 1px solid color.$red;
 }
 
 .form__alert {
-  background-color: rgb(252, 86, 86);
-  color: rgb(255, 255, 255);
+  background-color: color.$red;
+  color: color.$white;
   font-size: 0.85rem;
   vertical-align: top;
   padding: 0 5px;
