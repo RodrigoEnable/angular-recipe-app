@@ -11,7 +11,6 @@ import { RecipeDetailComponent } from './components/recipe-detail/recipe-detail.
 import { ButtonComponent } from './components/button/button.component';
 import { RecipeCardComponent } from './components/recipe-card/recipe-card.component';
 import { NewRecipeComponent } from './pages/new-recipe/new-recipe.component';
-import { RecipeService } from './services/recipe.service';
 import { RecipeListComponent } from './components/recipe-list/recipe-list.component';
 
 @NgModule({
@@ -26,7 +25,7 @@ import { RecipeListComponent } from './components/recipe-list/recipe-list.compon
     RecipeListComponent,
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule],
-  providers: [RecipeService],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
