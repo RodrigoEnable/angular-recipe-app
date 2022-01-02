@@ -5,7 +5,6 @@ import { RecipeService } from 'src/app/services/recipe.service';
 import { IRecipe } from '../../models/recipe.model';
 
 @Component({
-  selector: 'app-new-recipe',
   templateUrl: './new-recipe.component.html',
   styleUrls: ['./new-recipe.component.scss'],
 })
