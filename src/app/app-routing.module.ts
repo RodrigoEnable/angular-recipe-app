@@ -4,8 +4,9 @@ import { NewRecipeComponent } from './pages/new-recipe/new-recipe.component';
 import { RecipesComponent } from './pages/recipes/recipes.component';
 
 const routes: Routes = [
-  { path: '', component: RecipesComponent },
+  { path: 'recipes', component: RecipesComponent },
   { path: 'new-recipe', component: NewRecipeComponent },
+  { path: '', redirectTo: 'recipes', pathMatch: 'full' },
   { path: '**', component: RecipesComponent },
 ];
 
