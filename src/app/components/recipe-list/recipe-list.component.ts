@@ -8,6 +8,7 @@ import {
 import { Subscription } from 'rxjs';
 import { RecipeService } from '../../services/recipe.service';
 import { IRecipe } from '../../models/recipe.model';
+import { RemoveSpace } from 'src/app/pipes/remove-space.pipe';
 
 @Component({
   selector: 'app-recipe-list',
@@ -21,10 +22,23 @@ export class RecipeListComponent implements OnInit, OnDestroy {
 
   constructor(private recipeService: RecipeService) {}
 
+  formattedText(value: string[]): string[] {
+    const ingredientsArray = value.map((text) =>
+      text.replace(/\s+/g, ' ').trim()
+    );
+    return ingredientsArray;
+  }
+
   ngOnInit(): void {
     this.sub = this.recipeService.getRecipes().subscribe({
-      next: (data) => (this.recipes = data),
-      error: (error) => console.log(error),
+      next: (data) =>
+        (this.recipes = data.map((item) => ({
+          ...item,
+          ingredients: new RemoveSpace().transform(
+            item.ingredients
+          ) as string[],
+        }))),
+      error: (error) => error,
     });
   }
 

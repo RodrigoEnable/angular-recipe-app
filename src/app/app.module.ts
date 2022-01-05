@@ -12,6 +12,7 @@ import { ButtonComponent } from './components/button/button.component';
 import { RecipeCardComponent } from './components/recipe-card/recipe-card.component';
 import { NewRecipeComponent } from './pages/new-recipe/new-recipe.component';
 import { RecipeListComponent } from './components/recipe-list/recipe-list.component';
+import { RemoveSpace } from './pipes/remove-space.pipe';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { RecipeListComponent } from './components/recipe-list/recipe-list.compon
     RecipeListComponent,
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule],
-  providers: [],
+  providers: [RemoveSpace],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

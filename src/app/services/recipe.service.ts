@@ -22,16 +22,16 @@ export class RecipeService {
 
   constructor(private http: HttpClient) {}
 
-  getRecipes(): Observable<IRecipe[]> {
+  public getRecipes(): Observable<IRecipe[]> {
     return this.http.get<IRecipe[]>(this.apiUrl).pipe(
-      tap((data) => console.log(data)),
+      tap((data) => data),
       catchError(this.handleError)
     );
   }
 
-  postRecipes(recipe: IRecipe): Observable<IRecipe> {
+  public postRecipes(recipe: IRecipe): Observable<IRecipe> {
     return this.http.post<IRecipe>(this.apiUrl, recipe, httpOptions).pipe(
-      tap((data) => console.log(data)),
+      tap((data) => data),
       catchError(this.handleError)
     );
   }
@@ -39,9 +39,9 @@ export class RecipeService {
   private handleError(err: HttpErrorResponse) {
     let errorMessage = '';
     if (err.error instanceof ErrorEvent) {
-      errorMessage = `Um erro ocorreu: ${err.error.message}`;
+      errorMessage = `An error occurred: ${err.error.message}`;
     } else {
-      errorMessage = `O servidor retornou o código ${err.status}, a mensagem de erro é ${err.message}`;
+      errorMessage = `Server returned code ${err.status}, error message is ${err.message}`;
     }
     return throwError(() => new Error(errorMessage));
   }

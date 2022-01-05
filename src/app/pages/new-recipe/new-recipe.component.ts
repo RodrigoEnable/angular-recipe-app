@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RecipeService } from 'src/app/services/recipe.service';
 import { IRecipe } from '../../models/recipe.model';
+import { RemoveSpace } from 'src/app/pipes/remove-space.pipe';
 
 @Component({
   templateUrl: './new-recipe.component.html',
@@ -26,13 +27,13 @@ export class NewRecipeComponent implements OnInit {
   ngOnInit(): void {}
 
   addIngredients(values: string): string[] {
-    let removedSpaces = values.replace(/\s/g, '');
+    let removedSpaces = new RemoveSpace().transform(values) as string;
     let generateArray = removedSpaces.split(',');
     return generateArray;
   }
 
   addTags(values: string): string[] | null {
-    let removedSpaces = values.replace(/\s/g, '');
+    let removedSpaces = new RemoveSpace().transform(values) as string;
     let generateArray = removedSpaces.split(',');
     if (generateArray[0] === '') {
       return null;
