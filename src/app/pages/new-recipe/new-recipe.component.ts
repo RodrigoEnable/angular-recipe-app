@@ -64,7 +64,7 @@ export class NewRecipeComponent implements OnInit {
         error: (error) => this.onHttpError(error),
       });
 
-      this.route.navigate(['/']);
+      this.route.navigate(['/recipes']);
     } else {
       this.postError = true;
       this.errorMessage = 'Please fix the fields above and try again';

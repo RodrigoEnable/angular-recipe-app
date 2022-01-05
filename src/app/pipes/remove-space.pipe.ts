@@ -8,6 +8,6 @@ export class RemoveSpace implements PipeTransform {
     if (typeof value === 'object') {
       return value.map((text) => text.replace(/\s+/g, ' ').trim());
     }
-    return value.replace(/\s+/g, ' ').trim();
+    return value.replace(/\s/g, '').trim();
   }
 }
