@@ -2,6 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'removeSpace',
+  pure: true,
 })
 export class RemoveSpace implements PipeTransform {
   transform(value: string[] | string) {

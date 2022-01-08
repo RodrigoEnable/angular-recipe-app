@@ -13,6 +13,8 @@ import { RecipeCardComponent } from './components/recipe-card/recipe-card.compon
 import { NewRecipeComponent } from './pages/new-recipe/new-recipe.component';
 import { RecipeListComponent } from './components/recipe-list/recipe-list.component';
 import { RemoveSpace } from './pipes/remove-space.pipe';
+import { RecipeFavoriteComponent } from './pages/favorites/recipe-favorite.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -24,8 +26,15 @@ import { RemoveSpace } from './pipes/remove-space.pipe';
     RecipeCardComponent,
     NewRecipeComponent,
     RecipeListComponent,
+    RecipeFavoriteComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    FormsModule,
+    FontAwesomeModule,
+  ],
   providers: [RemoveSpace],
   bootstrap: [AppComponent],
 })

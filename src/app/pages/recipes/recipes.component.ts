@@ -6,7 +6,7 @@ import { IRecipe } from '../../models/recipe.model';
   styleUrls: ['./recipes.component.scss'],
 })
 export class RecipesComponent implements OnInit {
-  recipePicked?: IRecipe;
+  recipePickedParent?: IRecipe;
 
   constructor() {}
 

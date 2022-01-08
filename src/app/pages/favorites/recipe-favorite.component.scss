@@ -1,0 +1,14 @@
+.recipe-favorite-container {
+  h2 {
+    padding: 1rem 0 0 2.15rem;
+  }
+}
+
+@media (max-width: 295px) {
+  .recipe-favorite-container {
+    h2 {
+      padding: 0;
+      text-align: center;
+    }
+  }
+}

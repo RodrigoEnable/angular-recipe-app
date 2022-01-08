@@ -1,11 +1,12 @@
 <app-header></app-header>
 <div class="recipes-container">
   <div>
-    <app-recipe-list (recipePicked)="recipePicked = $event">
+    <!-- perceba que estamos atribuindo a propriedade recipePickedParent o valor obtido de $event e retransmitindo esse valor para o componente <app-recipe-detail> -->
+    <app-recipe-list (recipePicked)="recipePickedParent = $event">
     </app-recipe-list>
   </div>
   <div>
-    <app-recipe-detail *ngIf="recipePicked" [recipe]="recipePicked">
+    <app-recipe-detail *ngIf="recipePickedParent" [recipe]="recipePickedParent">
     </app-recipe-detail>
   </div>
 </div>

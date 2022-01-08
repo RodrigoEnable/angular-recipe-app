@@ -9,6 +9,12 @@ import { Subscription } from 'rxjs';
 import { RecipeService } from '../../services/recipe.service';
 import { IRecipe } from '../../models/recipe.model';
 import { RemoveSpace } from 'src/app/pipes/remove-space.pipe';
+import { FavoriteRecipeService } from 'src/app/services/favorite-recipe.service';
+
+type Favorite = {
+  id: string;
+  isFavorite: boolean;
+};
 
 @Component({
   selector: 'app-recipe-list',
@@ -16,18 +22,16 @@ import { RemoveSpace } from 'src/app/pipes/remove-space.pipe';
   styleUrls: ['./recipe-list.component.scss'],
 })
 export class RecipeListComponent implements OnInit, OnDestroy {
+  @Output() recipePicked = new EventEmitter<IRecipe>();
   recipes: IRecipe[] = [];
-  @Output() recipePicked = new EventEmitter();
   sub?: Subscription;
+  favoriteRecipes?: IRecipe[];
+  origin?: string = 'list';
 
-  constructor(private recipeService: RecipeService) {}
-
-  formattedText(value: string[]): string[] {
-    const ingredientsArray = value.map((text) =>
-      text.replace(/\s+/g, ' ').trim()
-    );
-    return ingredientsArray;
-  }
+  constructor(
+    private recipeService: RecipeService,
+    private favoriteService: FavoriteRecipeService
+  ) {}
 
   ngOnInit(): void {
     this.sub = this.recipeService.getRecipes().subscribe({
@@ -40,13 +44,26 @@ export class RecipeListComponent implements OnInit, OnDestroy {
         }))),
       error: (error) => error,
     });
+
+    this.favoriteRecipes = this.favoriteService.getFavoriteRecipes();
+    this.favoriteService.origin = this.origin;
   }
 
   ngOnDestroy(): void {
     this.sub?.unsubscribe();
   }
 
-  onPickedLayer02(recipe: any): void {
+  onPickedParent(recipe: IRecipe): void {
     this.recipePicked.emit(recipe);
+  }
+
+  onFavoriteParent(value: Favorite) {
+    const fav = this.recipes.find((item) => item.id === value.id);
+
+    if (!fav) {
+      return;
+    }
+
+    return this.favoriteService.manageRecipe(fav, value.isFavorite);
   }
 }

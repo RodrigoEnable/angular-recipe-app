@@ -1,3 +1,8 @@
 <div class="recipe-card-container">
-  <a (click)="onPickedLayer01()"><h3>{{ recipe.name }}</h3></a>
+  <div><a (click)="onPicked()"><h3>{{ recipe.name }}</h3></a></div>
+  <div>
+    <button (click)="onFavorited(recipe.id)">
+        <fa-icon [ngStyle]="{'color': 'rgb(30, 160, 89)'}" [icon]="isFavoriteIcon ? ['fas', 'star'] : ['far', 'star']"></fa-icon>
+    </button>
+  </div>
 </div>

@@ -1,4 +1,4 @@
-<div class="recipe-detail-container">
+<div [ngClass]="origin === 'favorite' ? 'recipe-detail-container fav' : 'recipe-detail-container'">
   <h3>Recipe Details</h3>
   <h4>{{ recipe?.name }}</h4>
   <p><span>Source:</span> {{ recipe?.source }}</p>

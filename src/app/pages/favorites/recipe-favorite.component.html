@@ -1,0 +1,8 @@
+<app-header></app-header>
+<div class="recipe-favorite-container">
+  <h2>{{ favoriteRecipes && favoriteRecipes.length === 0 ? 'No recipes have been registered yet' : 'Favorite Recipes' }}</h2>
+  <div *ngIf="favoriteRecipes && favoriteRecipes.length > 0">
+    <app-recipe-detail *ngFor="let recipe of favoriteRecipes" [recipe]="recipe">
+    </app-recipe-detail>
+  </div>
+</div>

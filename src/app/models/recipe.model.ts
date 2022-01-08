@@ -4,5 +4,6 @@ export interface IRecipe {
   source: string;
   instructions: string;
   ingredients: string[];
+  isFavorite?: boolean;
   tags: string[] | null;
 }

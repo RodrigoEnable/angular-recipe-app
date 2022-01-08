@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FavoriteRecipeService } from 'src/app/services/favorite-recipe.service';
 import { IRecipe } from '../../models/recipe.model';
 
 @Component({
@@ -8,8 +9,12 @@ import { IRecipe } from '../../models/recipe.model';
 })
 export class RecipeDetailComponent implements OnInit {
   @Input() recipe?: IRecipe;
+  origin?: string;
 
-  constructor() {}
+  constructor(private favoriteRecipes: FavoriteRecipeService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.origin = this.favoriteRecipes.origin;
+    console.log(this.origin);
+  }
 }

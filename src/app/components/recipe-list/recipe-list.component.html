@@ -1,5 +1,7 @@
 <div class="recipe-list-container">
   <app-button url="/new-recipe" color="rgb(30, 160, 89)" title="Add New Recipe"></app-button>
-  <app-recipe-card *ngFor="let recipe of recipes" [recipe]="recipe" (recipePicked)="onPickedLayer02(recipe)">
+  <app-button url="/favorites" color="rgb(30, 160, 89)" title="Favorite Recipes"></app-button>
+  <!-- "jogamos para cima" a receita escolhida pelo usuário (recipePicked) e a receita que ele "favoritou" (favorited), um objeto com id da receita e a propriedade isFavorite -->
+  <app-recipe-card *ngFor="let recipe of recipes" [recipe]="recipe" (recipePicked)="onPickedParent(recipe)" (favorited)="onFavoriteParent($event)" [favoriteRecipes]="favoriteRecipes">
   </app-recipe-card>
 </div>
